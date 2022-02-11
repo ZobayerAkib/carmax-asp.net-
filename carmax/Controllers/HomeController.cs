@@ -12,7 +12,9 @@ namespace carmax.Controllers
         public ActionResult Index()
         {
             
-            return View();
+            List<product> car = db.products.Take(3).ToList();
+
+            return View(car);
         }
         public ActionResult Register()
         {
@@ -57,8 +59,14 @@ namespace carmax.Controllers
             int resCount = db.logins.Where(temp => temp.email.Equals(email) & temp.password.Equals(newPassword)).Count();
             if(resCount > 0)
             {
-                Session["email"] = email;
-                return Redirect("Index");
+                List<login> user = db.logins.Where(temp=> temp.email.Equals(email) ).ToList();
+                foreach (var i in user)
+                {
+                    Session["username"] = i.username;
+                    Session["userType"] = i.type;
+                }
+
+                return RedirectToAction("Index");
             }
             else
             {
