@@ -94,37 +94,96 @@
 
 
         <div style="margin-top:100px ;" class="row cars">
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
-            <div class="col col-lg-4 col-md-6 col-sm-12 mb-5 " style="width:300px;margin:auto;">
+                <div class="col col-lg-4 col-md-6 col-sm-12 mb-5 ">
 
-                <form action="#" method="GET">
+                    <form action="#" method="GET">
 
-                    <div class="card " style="width:325px;">
-                        <img src="@item.img" class="card-img-top" alt="..." height="200px">
-                        <div class="card-body mt-5">
-                            <h5 class="card-title">@item.name</h5>
-                            <p class="card-text" style="font-weight: bold;">
-                                Price : &#2547; @item.price
+                        <div class="card " style="width:325px;">
+                            <img src="@Url.Content(item.img)" class="card-img-top" alt="..." height="200px">
+                            <div class="card-body mt-5">
+                                <h5 class="card-title">@item.name</h5>
+                                <p class="card-text" style="font-weight: bold;">
+                                    Price : &#2547; @item.price
 
-                            </p>
-                            <button type="submit" class="btnn2" name="enter">Details</button>
-                            <input type="hidden" name="_id" value="@item.id">
-                            <input type="hidden" name="_tbl" value="@item.type">
+                                </p>
+                                <button type="submit" class="btnn2" name="enter">Details</button>
+                                <input type="hidden" name="_id" value="@item.id">
+                                <input type="hidden" name="_tbl" value="@item.type">
+                            </div>
                         </div>
-                    </div>
 
 
-                </form>
+                    </form>
 
-            </div>
+                </div>
 
 
             }
         </div>
 
         <div class="container mt-5" style="padding-top: 10px;">
-            <a style="padding-top: 10px;margin-bottom:50px" href="Cart.php" class="btnn3">See All Vehicles</a>
+            <a style="padding-top: 10px;margin-bottom:50px" href="#" class="btnn3">See All Vehicles</a>
+        </div>
+    </section>
+
+    <!-- Service Section -->
+    <section class="services">
+        <div class="container">
+            <div class="heading mt-5">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 d-flex align-item-center mb-5 mt-5">
+
+                    <form>
+                        <div class="icon_box one">
+                            <div class="icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h4 class="Title" style="color: tomato;">car selling</h4>
+                            <p class="discription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, architecto! Vitae, harum illum eligendi beatae odio architecto, asperiores ullam repudiandae explicabo optio modi voluptates!</p>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-item-center mb-5 mt-5">
+
+                    <form>
+                        <div class="icon_box one">
+                            <div class="icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h4 class="Title" style="color: tomato;">car insurance</h4>
+                            <p class="discription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, architecto! Vitae, harum illum eligendi beatae odio architecto, asperiores ullam repudiandae explicabo optio modi voluptates!</p>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-item-center mb-5 mt-5">
+
+                    <form>
+                        <div class="icon_box one">
+                            <div class="icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4 class="Title" style="color: tomato;">24/7 support</h4>
+                            <p class="discription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, architecto! Vitae, harum illum eligendi beatae odio architecto, asperiores ullam repudiandae explicabo optio modi voluptates!</p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+
+            </div>
         </div>
     </section>
 
