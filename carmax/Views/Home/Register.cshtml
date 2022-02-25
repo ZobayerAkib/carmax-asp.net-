@@ -18,11 +18,11 @@
             </div>
             <div class="input-group" style="margin-bottom: 40px;">
                 <label style="margin-right: 110px;margin-left:20px;font-size:20px;font-weight:bold;">Phone</label>
-                <input style="border-radius: 5px;font-size:15px;font-weight:bold;" type="text" placeholder="Phone" name="phone" value="" required>
+                <input style="border-radius: 5px;font-size:15px;font-weight:bold;" type="tel" placeholder="Phone" name="phone" value="" pattern="[0]{1}[1]{1}[0-9]{9}" required>
             </div>
             <div class="input-group" style="margin-bottom: 40px;">
                 <label style="margin-right: 81px;margin-left:20px;font-size:20px;font-weight:bold;">Password</label>
-                <input style="border-radius: 5px;font-size:15px;font-weight:bold;" type="password" placeholder="Password" name="password" value="" required>
+                <input style="border-radius: 5px;font-size:15px;font-weight:bold;" type="password" placeholder="Password" name="password" value="" minlength="6" required>
             </div>
             <div class="input-group d-flex justify-content-center" style="margin-top: 55px;">
                 <button name="submit" class="btn btn-success btn-lg" style="width: 400px;">Register</button>

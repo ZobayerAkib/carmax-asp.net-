@@ -18,7 +18,14 @@ namespace carmax.Controllers
         }
         public ActionResult Register()
         {
-            return View();
+            if(Session["username"] == null)
+            {
+                return View("Register");
+            }
+            else
+            {
+                return Content("The url does not exist");
+            }
         }
         [HttpPost]
         public ActionResult RegisterData(string username,string email,string phone,string password)
@@ -26,8 +33,9 @@ namespace carmax.Controllers
             int resCount = db.logins.Where(temp => temp.email.Equals(email)).Count();
             if(resCount>0)
             {
-                ViewBag.Message = "The email already exist! Please log in.";
-                return View("Login");
+               
+                TempData["msg"] = "The email already exist! Please log in.";
+                return RedirectToAction("Login");
             }
             else
             {
@@ -44,8 +52,9 @@ namespace carmax.Controllers
                 db.logins.Add(lg);
                 db.SaveChanges();
 
-                ViewBag.Message = "Register completed! Please log in.";
-                return View("Login");
+               
+                TempData["msg"] = "Register completed! Please log in.";
+                return RedirectToAction("Login");
             }
             
         }
@@ -70,14 +79,32 @@ namespace carmax.Controllers
             }
             else
             {
-                ViewBag.Message = "Email or Password does not match! Try again.";
-                return View("Login");
+                
+                TempData["msg"] = "Email or Password does not match! Try again.";
+                return RedirectToAction("Login");
             }
         }
         public ActionResult Login()
         {
 
-            return View();
+            if (Session["username"] == null)
+            {
+                if(TempData["msg"]!=null)
+                {
+                    ViewBag.Message = TempData["msg"].ToString();
+                }
+                return View("Login");
+            }
+            else
+            {
+                return Content("The url does not exist");
+            }
+        }
+
+        public ActionResult Cars()
+        {
+            List<product> car = db.products.ToList();
+            return View(car);
         }
         public ActionResult About()
         {
