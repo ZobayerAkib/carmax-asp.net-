@@ -103,8 +103,21 @@ namespace carmax.Controllers
 
         public ActionResult Cars()
         {
-            List<product> car = db.products.ToList();
+            List<product> car = db.products.Where(temp => temp.type.Equals("normal")).ToList();
             return View(car);
+        }
+        public ActionResult SpecialOffers()
+        {
+            if(Session["username"] != null)
+            {
+                List<product> car = db.products.Where(temp => temp.type.Equals("private")).ToList();
+                return View(car);
+            }
+            else
+            {
+                TempData["msg"] = "Please login to see this page";
+                return RedirectToAction("Login");
+            }
         }
         public ActionResult About()
         {
